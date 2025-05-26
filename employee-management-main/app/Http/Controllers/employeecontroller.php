@@ -33,13 +33,13 @@ class employeecontroller extends Controller
         
     ]);
 
-    employee::($request->all());
+    employee::findOrFail($request->all());
     return view ('employee.create');
     }
 
     public function edit( int $id)
     {
-        $employees = employee::find($id);
+        $employees = employee::findOrFail($id);
         return view ('employee.edit');
     }
 

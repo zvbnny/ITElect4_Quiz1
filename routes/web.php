@@ -20,10 +20,12 @@ Route::middleware('auth')->group(function () {
     
     Route::get('employee', [App\Http\Controllers\employeecontroller::class, 'index']);
     Route::post('employee', [App\Http\Controllers\employeecontroller::class, 'index']);
+
     Route::('users', [\App\Http\Controllers\UserController::class, 'index'])->name('users.index');
-    Route::get('employee', [\App\Http\Controllers\employeecontroller::class, 'index']);
-    Route::('employee/create', [App\Http\Controllers\employeecontroller::class, 'create']);
-    Route::('employee', [App\Http\Controllers\employeecontroller::class, 'store']);
+
+    Route::get('employee', [\App\Http\Controllers\employeecontroller::class, 'index'])->name('employee.index');
+    Route::get('employee/create', [App\Http\Controllers\employeecontroller::class, 'create'])->name('employee.create');
+    Route::post('employee/create', [App\Http\Controllers\employeecontroller::class, 'store'])->name('employee.store');
     // Route::get('employee/{id}/edit', [App\Http\Controllers\employeecontroller::class, 'edit']);
     // Route::put('employee/{id}/edit', [App\Http\Controllers\employeecontroller::class, 'update']);
     // Route::get('employee/{id}/delete', [App\Http\Controllers\employeecontroller::class, 'delete']);
